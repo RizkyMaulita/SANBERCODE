@@ -1,0 +1,270 @@
+			MATERI DATABASE FROM SEKOLAH KODING
+------------------------------------------------------------------------------------------------
+link: https://www.youtube.com/watch?v=5Mn-AuYUZ8o&list=PLCZlgfAG0GXBWjBVQYxtx33htv6PqbKMl&index=1
+-------------------------------------------------------------------------------------------------
+ALTER TABLE `table` ADD `alamat` VARCHAR(20) NULL AFTER `umur`;
+	- jika di phpmyadmin, klik add dibawah stucture tablenya.
+	- menambahkan table alamat setelah table umur.
+
+INSERT INTO `table` (`id`, `nama`, `umur`, `alamat`) VALUES 
+	(NULL, 'Litha', '23', 'Tangerang'), 
+	(NULL, 'Putri', '22', 'Keroncong');
+	
+	- jika di phpmyadmin, klik insert, lalu masukkan datanya.
+
+UPDATE `table` SET `umur` = '24' WHERE `table`.`id` = 2;
+
+SELECT * FROM `table` WHERE umur > 23
+	-mencari data dimana umur > 23
+
+SELECT * FROM `table` ORDER BY umur
+	-mengurutkan table dari kecil - besar
+
+SELECT * FROM `table` ORDER BY umur DESC 
+	-mengurutkan table dari besar - kecil
+
+SELECT * FROM `table` WHERE nama LIKE '%tri'
+	-mencari data berdasarkan nama yang akhir kata ada 'tri'.
+	-tri% -> berarti kata depannya harus tri
+	- bisa %tr% -> kata tengahnya harus ada tr
+	- menggunakan % tidak akan berpengaruh seberapa banyak karakter sebelum/sesudahnya
+
+SELECT * FROM `table` WHERE nama LIKE '_utri'
+	- jika menggunakan _ maka hanya boleh 1 karakter yang mengisi itu. berbeda dengan %
+
+------------------------------------------------------------------------------------------
+Microsoft Windows [Version 10.0.18363.959]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\Lita>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 22
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database commandline2;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| commandline        |
+| commandline2       |
+| information_schema |
+| litha              |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| prabootcamp        |
+| test               |
+| ujian              |
++--------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [(none)]> use commandline;
+Database changed
+MariaDB [commandline]> SHOW TABLES;
++-----------------------+
+| Tables_in_commandline |
++-----------------------+
+| table                 |
++-----------------------+
+1 row in set (0.001 sec)
+
+MariaDB [commandline]> CREATE TABLE data2(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> nama VarCHAR(20)
+    -> );
+Query OK, 0 rows affected (0.267 sec)
+
+MariaDB [commandline]> show tables;
++-----------------------+
+| Tables_in_commandline |
++-----------------------+
+| data2                 |
+| table                 |
++-----------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [commandline]> describe data2;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nama  | varchar(20) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.023 sec)
+
+MariaDB [commandline]> ALTER TABLE data2 ADD alamat VARCHAR(20) NOT NULL;
+Query OK, 0 rows affected (0.094 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [commandline]> INSERT INTO data2 (nama, alamat) VALUES
+    -> ('Litha', 'Tangerang'),
+    -> ('Putri', 'Keroncong');
+Query OK, 2 rows affected (0.054 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [commandline]> SELECT * FROM data2;
++----+-------+-----------+
+| id | nama  | alamat    |
++----+-------+-----------+
+|  1 | Litha | Tangerang |
+|  2 | Putri | Keroncong |
++----+-------+-----------+
+2 rows in set (0.000 sec)
+
+MariaDB [commandline]> SELECT nama, alamat FROM data2;
++-------+-----------+
+| nama  | alamat    |
++-------+-----------+
+| Litha | Tangerang |
+| Putri | Keroncong |
++-------+-----------+
+2 rows in set (0.000 sec)
+
+MariaDB [commandline]> SELECT * FROM data2 WHERE id=2;
++----+-------+-----------+
+| id | nama  | alamat    |
++----+-------+-----------+
+|  2 | Putri | Keroncong |
++----+-------+-----------+
+1 row in set (0.000 sec)
+
+MariaDB [commandline]> SELECT * FROM data2 WHERE nama="Litha";
++----+-------+-----------+
+| id | nama  | alamat    |
++----+-------+-----------+
+|  1 | Litha | Tangerang |
++----+-------+-----------+
+1 row in set (0.000 sec)
+
+MariaDB [commandline]> SELECT * FROM data2 WHERE nama='Litha' OR 'Rizky';
++----+-------+-----------+
+| id | nama  | alamat    |
++----+-------+-----------+
+|  1 | Litha | Tangerang |
++----+-------+-----------+
+1 row in set, 5 warnings (0.019 sec)
+
+MariaDB [commandline]> SELECT * FROM data2 WHERE nama='Litha' AND 'Rizky';
+Empty set, 5 warnings (0.000 sec)
+
+MariaDB [commandline]> SELECT * FROM data2 WHERE nama='Litha' AND id=0;
+Empty set (0.000 sec)
+
+MariaDB [commandline]> SELECT * FROM data2 WHERE nama='Litha' AND id=1;
++----+-------+-----------+
+| id | nama  | alamat    |
++----+-------+-----------+
+|  1 | Litha | Tangerang |
++----+-------+-----------+
+1 row in set (0.000 sec)
+
+MariaDB [commandline]> UPDATE data2 SET nama = 'Rizky' WHERE data2.id = 1;
+Query OK, 1 row affected (0.036 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [commandline]> SELECT * FROM data2;
++----+-------+-----------+
+| id | nama  | alamat    |
++----+-------+-----------+
+|  1 | Rizky | Tangerang |
+|  2 | Putri | Keroncong |
++----+-------+-----------+
+2 rows in set (0.000 sec)
+
+MariaDB [commandline]> show tables;
++-----------------------+
+| Tables_in_commandline |
++-----------------------+
+| data2                 |
+| table                 |
++-----------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [commandline]> SELECT COUNT(*) FROM data2;
++----------+
+| COUNT(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [commandline]> DELETE FROM data2 WHERE id=2;
+Query OK, 1 row affected (0.039 sec)
+
+MariaDB [commandline]> select * from data2;
++----+-------+-----------+
+| id | nama  | alamat    |
++----+-------+-----------+
+|  1 | Rizky | Tangerang |
++----+-------+-----------+
+1 row in set (0.000 sec)
+
+MariaDB [commandline]> ALTER TABLE data2 DROP alamat;
+Query OK, 0 rows affected (0.109 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [commandline]> select * from data2;
++----+-------+
+| id | nama  |
++----+-------+
+|  1 | Rizky |
++----+-------+
+1 row in set (0.000 sec)
+
+MariaDB [commandline]> DROP TABLE data2;
+Query OK, 0 rows affected (0.143 sec)
+
+MariaDB [commandline]> show tables;
++-----------------------+
+| Tables_in_commandline |
++-----------------------+
+| table                 |
++-----------------------+
+1 row in set (0.001 sec)
+
+MariaDB [commandline]> DROP DATABASE commandline;
+Query OK, 1 row affected (0.152 sec)
+
+MariaDB [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| commandline2       |
+| information_schema |
+| litha              |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| prabootcamp        |
+| test               |
+| ujian              |
++--------------------+
+9 rows in set (0.001 sec)
+
+MariaDB [(none)]> DROP DATABASE commandline2;
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| litha              |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| prabootcamp        |
+| test               |
+| ujian              |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]>
