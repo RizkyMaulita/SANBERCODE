@@ -1,0 +1,17 @@
+body{
+	background-image: url(img/pattern3.png);
+}
+.accordion{
+	width: 25%;
+	/*height: 25%;*/
+}
+
+.list-group{
+	width: 20%;
+}
+.carousel{
+	width: 20%;
+}
+/*.card-body{
+	width: 20%;
+}*/

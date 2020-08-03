@@ -1,0 +1,88 @@
+<!-- Materi dari CSS dasar Web Programming UNPAS -->
+<!-- Cara pakai CSS itu ada 3:
+1. Embed CSS
+2. Inline CSS-- (tidak direkomendasikan, tapi dalam beberapa kasus ini diperlukan)
+3. External CSS -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<<meta charset="utf-8">
+
+	<title> COBA CSS </title>
+	<!-- ini pakai EXTERNAL CSS -->
+	<link rel="stylesheet" href="CSS/materi21juli.css">
+	<!-- INI PAKAI CARA EMBED CSS -->
+	<style type="text/css">
+		body{ font-family: arial; }
+		/*h1{color: lightblue; }*/
+		p{
+			line-height: 1.6cm;
+			color: grey; }
+	</style>
+</head>
+<body>
+<!-- <h1> INI PAKAI EMBED CSS </h1> -->
+<p> ini pakai embed css loh </p>
+
+<!-- INI BENTUK HTML ASLI TANPA CSS -->
+<!-- <font size="+6" color="purple" face="arial">
+	<center>
+		<h2> HELLO WORLD! INI HTML ASLI TANPA CSS </h2>
+	</center>
+</font> -->
+<h1> INI PAKAI EXTERNAL CSS </h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<!-- INLINE CSS tidak direkomendasikan. tapi akan ada  -->
+<h3 style="color: red; font-family: times new roman "> Ini Pakai InLine CSS </h3>
+
+<a href="#" class="hello"> Ini adalah link </a>
+
+<ul>
+	<li><a href="#"> Link 1 </a></li>
+	<li><a href="#"> Link 2 </a></li>
+	<li><a href="#"> Link 3 </a></li>
+	<li><a href="#"> Link 4 </a></li>
+	<li><a href="#"> Link 5 </a></li>
+</ul>
+
+<ol>
+	<li><a href="#"> Link 6 </a></li>
+	<li><a href="#"> Link 7 </a></li>
+	<li><a href="#"> Link 8 </a></li>
+	<li><a href="#"> Link 9 </a></li>
+	<li><a href="#"> Link 10 </a></li>
+</ol>
+
+<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="p2 cetak_tebal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<ul id="sarapan">
+	<li class="favorit"> Nasi Goreng </li>
+	<li> Mie Goreng </li>
+	<li> Bubur Ayam </li>
+	<li> Nasi Kuning </li>
+</ul>

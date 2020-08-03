@@ -1,0 +1,74 @@
+/*STYLE JUMBOTRON*/
+.jumbotron{
+	background-image: url(pattern.jpg);
+	/*background-size: cover; */
+	/*background-size: itu dipakai jika gambar ternyata kepotong.*/
+	height: 750px;
+	text-align: center;
+	margin-top: -120px;
+	/*margin-bottom: 120px;*/
+	/*margin top -120 supaya jumbotron naik ke atas
+	dan akhirnya tampilannya bisa full asal di navbar bg-transparent*/
+}
+
+.jumbotron .display-4{
+	color: rgb(17,7,97);
+	margin-top: 120px;
+	/*ini supaya tulisannya gak naik keatas*/
+}
+
+.jumbotron p{
+	color: red;
+	font-size: 25px;
+}
+
+.jumbotron hr{
+	border-color: #F05F40;
+	width: 70px;
+	border-width: 3px;
+}
+
+.jumbotron .btn{
+	background-color: #F05F40;
+	border: none;
+	border-radius: 20px;
+	padding-right: 25px;
+	padding-left: 25px;
+	margin-top: 30px;
+}
+
+/*STYLE SLIDER*/
+.carousel-item {
+	height: 670px ;
+}
+
+.carousel-item img{
+	margin-top: -120px;
+}
+
+.carousel-item .display-4{
+	margin-top: -440px;
+}
+
+.carousel-item hr{
+	border-color: #F05F40;
+	width: 70px;
+	border-width: 3px;
+}
+
+.carousel-item .btn{
+	background-color: #F05F40;
+	border: none;
+	border-radius: 20px;
+	padding-right: 25px;
+	padding-left: 25px;
+	margin-top: 30px;
+}
+
+.fa-youtube{
+	color: red;
+}
+
+.fa-facebook-f{
+	color: blue;
+}

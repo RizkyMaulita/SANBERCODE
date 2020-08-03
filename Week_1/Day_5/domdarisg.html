@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dom Selection</title>
+  <style>
+    * { 
+        border: 2px solid #dedede; 
+        padding: 15px; 
+        margin: 15px; 
+    }
+    html { 
+      margin: 0;
+      padding: 0;
+    }
+    body { 
+      max-width: 600px;
+      margin: 30px auto;
+      font-family: sans-serif;
+      color: #333;
+    }
+    
+    #b p {color: green;}
+
+    li:nth-child(2) {background-color: orange;}   /*mengubah warna list yang kedua*/
+    section#b ul li:nth-child(1) {background-color: blue}; /*atau bisa seperti ini jika ingin complex*/ 
+
+    /*.biru-muda {background-color: lightblue;}*/
+
+    /*.p3:active { background-color: lightblue; }   /*jadi ini style ketika misal kita klik, itu akan berubah warna. namun hanya sekali/sebentar. yang diinginkan ialah permanen, sehingga diperlukan DOM Events*/
+  </style>
+</head>
+<body>
+
+  <h1 id="judul"> JUDUL H1 : Hello World</h1>
+  <div id="container">
+      <section id="a"> INI SECTION A
+          <p class="p1">paragraf 1</p>
+          <p class="p1">paragraf 1.2</p>
+          <p class="p1">paragraf 1.3</p>
+          <a href="http://instagram.com/sandhikagalih">Instagram Sandhika Galih</a>
+          <p class="p2">paragraf 2</p>
+          <p class="p3" onClick="ubahWarna()">paragraf 3</p>
+      </section>
+      <section id="b"> INI SECTION B
+          <p>paragraf 4</p>
+          <ul class="list">
+              <li>item 1</li>
+              <li>item 2</li>
+              <li>item 3</li>
+          </ul>
+      </section>
+  </div>
+
+<!-- ini untuk Materi DOM Selection -->
+<script type="text/javascript" src="domdarisg.js"></script>
+
+<!-- ini untuk Materi DOM Manipulation -->
+<!-- <script type="text/javascript" src="domdarisg2.js"></script> -->
+
+<!-- ini untuk Materi DOM Event -->
+<!-- <script type="text/javascript" src="domdarisg3.js"></script> -->
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!-- MATERI OBJECT pada JAVASCRIPT
+	link https://www.youtube.com/watch?v=RKsapPaUgww&feature=youtu.be
+
+	contoh, array itu merupakan object. jadi tidak ada type data berupa array, melainkan type data berupa object.
+
+	ARRAY adalah kumpulan nilai, yang memiliki INDEX. 
+	OBJECT adalah kumpulan nilai, yang memiliki NAMA.
+
+	ARRAY itu bisa dikatakan sebuah VARIABLE yang lebih sakti.
+	OBJECT itu bisa dikatakan sebuah ARRAY yang lebih sakti.
+
+	"In Javascript, object are king. If you understand object, you understand javascript"
+
+	Object pada bahasa pemrograman lain:
+		PHP 		= Associative Array
+		Python		= Dictionaries
+		C 			= Hash Tables
+		Java 		= Hash Maps
+		Ruby & Perl	= Hashes
+
+	variabel yang ada dalam object disebut properti
+	function yang ada dalam object disebut method
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> MATERI OBJECT dan DOM (Document Object Model) </title>
+</head>
+<body>
+	<div id="array"></div>
+	<div id="object"></div>
+	<div id="object2"></div>
+	<div id= "eksternal"></div>
+	<script type="text/javascript">
+		/* ini kalau gak pakai array/object
+		var namaMhs = "Sandhika Galih";
+		var umurMhs = 31;
+		var lulus = true;
+		var IPSemester = [2.90 , 3.10, 3.25, 2.88, 3.04];
+		
+		problemnya akan sulit jika ada mahasiswa lain yang ingin diinput */
+
+		//ini pakai array
+		var mahasiswa = 
+		['Sandhika Galih', true, [2.90, 3.10, 3.25, 2.88, 3.04]];
+
+		function IPKumulatif (IPSemester){
+			var total = 0;
+			for (var i = 0; i < IPSemester.length; i++){
+				total += IPSemester[i];
+			}
+			return total/IPSemester.length;
+		}; 
+
+		// var hasil = IPKumulatif(mahasiswa[2]);
+		document.getElementById('array').innerHTML = IPKumulatif(mahasiswa[2]);
+
+		//ini pakai object
+		var mahasiswa2 ={
+			nama : 'Sandhika Galih',
+			lulus : true,
+			IPSemester : [2.90, 3.10, 3.25, 2.88, 3.04],
+			IPKumulatif2 : function(){
+				var total = 0;
+				var ips = this.IPSemester;
+				for (var i = 0; i < ips.length; i++){
+					total += ips[i];
+				}
+				return total/ips.length;
+			}
+		}
+		var hasil2 = mahasiswa2.IPKumulatif2();
+		document.getElementById('object').innerHTML = hasil2; 
+
+		
+		var Orang = {
+			nama : 'Sandhika Galih',		//ini properti
+			umur : 31,			//ini properti
+			pekerjaan : 'Dosen', 	//ini properti
+			sapa : function(){		//ini method
+				return 'Hi , nama saya ' + this.nama + ' usia saya ' + this.umur + ' tahun, dan saya adalah seorang ' + this.pekerjaan;
+			}
+		}
+		document.getElementById('object2').innerHTML = Orang.sapa();
+
+
+		// kalau mau pakai eksternal, maka yang di html sini gak akan muncul jika ngesourcenya di taruh di tag sini. kecuali jika di luar tag script ini, dan buat tag script lagi, maka dapat combine dua2nya.
+
+	</script>
+
+<script type="text/javascript" src="materi24juli.js">
+	// MATERI TENTANG DOM (Document Object Model) di taruh di file materi24juli.js ya :)
+</script>
+
+</body>
+</html>

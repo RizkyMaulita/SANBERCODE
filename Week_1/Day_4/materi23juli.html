@@ -1,0 +1,242 @@
+<!-- MATERI JAVASCRIPT 
+	
+	see link berikut https://www.youtube.com/watch?v=ttYTx_wGcQY&list=PLCZlgfAG0GXAiH1acKFPx8EtpJAq44gjP
+	
+	ada dua cara memasukkan javascript:
+	1. internal 
+		<body>
+			<script></<script>
+	2. eksternal
+		membuat file baru berekstension .js
+		<body>
+			<script src="file.js"></script>
+		</body>
+
+		kalau bisa paling bawah saja . karena sebelumnya di taruh di head, dia tidak memunculkan id. 
+
+	komentar di js itu bisa pake // atau /* ... */
+ -->
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title> Belajar Javascript </title>
+ 	<style type="text/css">
+ 		/*ini cara lain membuat css dalam html, jadi gak perlu file lagi*/
+ 		#wrap{
+ 			background: black;
+ 			color: white;
+ 			font-size: 25px;
+ 		}
+ 	</style>
+
+
+ </head>
+ <body>
+ 	<div id="wrap"></div>
+ 	<div id = 'string'></div>
+ 	<div id = 'fungsi'></div>
+ 	<div id = 'fungsi2'></div>
+ 	<div id = 'fungsi3'></div>
+ 	<div id = 'fungsi4'></div>
+ 	<script>
+ 		// kode javascript
+ 		document.getElementById("wrap").innerHTML = "Sekolah Koding";
+
+ 		var x = 100000;
+ 		document.getElementById("wrap").innerHTML= x; 
+ 		//walaupun sebelumnya udah ada "sekolah koding", tapi outputnya tetap menggunakan yang terakhir. 
+
+ 		/* 			Deklarasi Variabel
+ 		------------------------------------------------------------
+ 		Nama dimulai dengan huruf atau $ atau _
+ 		Nama boleh mengandung huruf, angka, underscore_ dan $dollar
+ 		Nama sangat case sensitive (typo dikit, gak kebaca)
+ 		Ada 'reversed words' yang tidak boleh dipakai					*/
+
+ 		var tabungan = 10;
+ 		var Tabungan = 100;
+		document.getElementById("wrap").innerHTML= Tabungan;
+
+		// Tipe data string
+		var text = "sekolah koding 123";
+		document.getElementById("wrap").innerHTML= text;
+
+
+		// tipe data angka
+		var angka = 1000;
+		var number = "1000" + "1";
+		var angka2 = 1000.11111111111 + 1;
+		document.getElementById("wrap").innerHTML= number;
+		document.getElementById("wrap").innerHTML= angka2;
+
+		var jumlah = angka + angka2;
+		// document.getElementById("wrap").innerHTML= jumlah;
+
+		var jumlah2 = jumlah%2 ;
+		document.getElementById("wrap").innerHTML= jumlah2;
+
+		angka = 15; 	//ini untuk mengganti isi variable angka yang di sebelumnya
+		var mod = angka%2;
+		document.getElementById("wrap").innerHTML= mod;
+
+		//untuk increment atau decrement seperti kek di php, ++, --, +=2, -=2, *=2, /=2, .... 
+		angka/=3; 		
+		var jumlah3 = angka + 2;
+		document.getElementById("wrap").innerHTML= jumlah3;
+
+		// angka2 = angka + angka2;
+		// document.getElementById("wrap").innerHTML= angka2;
+
+		var bagi = angka2 /= angka;
+		document.getElementById("wrap").innerHTML= bagi;
+
+
+		/*--------------------------------------------------------------
+						METODE ANGKA
+		
+		toFixed()		toString()		random()	min(a, b, c)	max(a, b, c)			*/
+
+		var angka3 = 1707.1997;
+		var angka_baru = angka3.toFixed(2) + angka2;		//menentukan jumlah angka dibelakang koma
+		document.getElementById("wrap").innerHTML= angka_baru;
+
+		var angka_baru2 = angka3.toString() + angka2;		//mengubah tipe data angka ke string
+		document.getElementById("wrap").innerHTML= angka_baru2;
+
+		var angka_baru3 = Math.random();
+		var angka_baru4 = Math.random().toFixed(2);
+		var angka_baru5 = Math.min(angka, angka2, angka3);
+		document.getElementById("wrap").innerHTML= angka_baru5;
+
+		// untuk yang min, max. ketika gue pakai angka_baru, dia gak mau muncul. maybe karena belum ada operasinya (?)
+
+		/*
+		round()	: membulatkan ke angka terdekat	
+		ceil() 	: membulatkan ke atas
+		floor() : membulatkan ke bawah
+		ObjectMethods(contoh: abs, log) 	r
+		
+		random spesific formula -> Math.floor(Math.random()*x) + 1;								
+		*/
+		
+		var angka_baru = Math.round(241.4999999);
+		document.getElementById('wrap').innerHTML = angka_baru;
+
+		/* karena Math.random() itu hanya menghasilkan nilai diantara [0,1], maka ketika kita ingin membuat angka random yang lebih spesifik, perlu ditambahkan variable x sebagai batas atas dari pengambilan angka random  
+			(Math.random() * x ) + y  																*/
+
+		var x = 10;	//batas atas. jadi range dari Math.random() ialah [0,10]
+		var y = 5;
+		var angka_random = Math.floor(Math.random() * x) + y;	//karena ditambah y, maka nanti batasnya menjadi [5,15]. lalu penambahan Math.floor itu optional. boleh pakai objectMethods yang lain. kek Math.ceil(), Math.abs(), Math.log(), dll...
+		document.getElementById('wrap').innerHTML = angka_random;
+
+		/* ---------------------------------------------------------------------------------------------------------
+					METODE STRING
+		
+		length				toUpperCase()		substring(start, end)		parseInt
+		indexOf				toLowerCase()		substr(start, length)		parseFloat
+		lastIndexOf 		replace
+		search		
+		charAt											*/
+		var nama = 'Namaku Litha';
+		var hasil = nama.length;
+		document.getElementById('string').innerHTML = hasil;
+
+		var hasil2 = nama.indexOf('a');		//melihat posisi huruf berada paling awal di index berapa
+		document.getElementById('string').innerHTML = hasil2;
+		
+		var hasil3 = nama.lastIndexOf('a');		//melihat posisi huruf paling terakhir di index berapa
+		document.getElementById('string').innerHTML	= hasil3;	 				
+		var hasil4 = nama.search('ku Li');
+		document.getElementById('string').innerHTML = hasil4;
+
+		var hasil5 = nama.charAt(3);
+		document.getElementById('string').innerHTML = hasil5;
+
+		var hasil6 = nama.toLowerCase();
+		document.getElementById('string').innerHTML = hasil6;
+
+		var hasil7 = nama.replace('ith', '***');
+		document.getElementById('string').innerHTML = hasil7;
+
+		var hasil8 = nama.substring(0,3);		//yang diambil ialah index 0 hingga 3-1 = 2
+		document.getElementById('string').innerHTML = hasil8;
+
+		var hasil9 = nama.substr(2,3);		//yang diambil dari index 2 dengan panjang 3
+		document.getElementById('string').innerHTML = hasil9;
+
+		//parseInt dan parseFloat itu dipakai ketika ada angka yang typenya string. 
+		var num = '170.17'
+		var hasil10 = parseInt(num) + 10;
+		document.getElementById('string').innerHTML = hasil10;
+
+		var hasil11 = parseFloat(num) + 17;
+		document.getElementById('string').innerHTML = hasil11;
+
+		/*-----------------------------------------------------------------------------------------------------
+					FUNGSI 								*/
+
+		function printText(){
+			alert('selamat datang!');
+			var x = 'ini sebuah fungsi'
+			document.getElementById('fungsi').innerHTML = x;
+		}
+		printText();
+
+		function prinText2(isi){
+			var text = isi + ' yang baru';
+			document.getElementById('fungsi2').innerHTML = text;
+		}
+		// prinText2('ini fungsi kedua');
+		var isi2 = 'ini fungsi kedua';
+		prinText2(isi2);
+
+		function printText3 (text, text2, text3){
+			var hasil = text +' '+ text2 +' '+ text3;
+			document.getElementById('fungsi3').innerHTML = hasil; 
+		};
+		printText3('ini','fungsi','tiga parameter');
+
+
+		function printText4(){
+			var a = 'sekolah';
+			var b = 'koding';
+			var c = '123';
+			return a + ' ' + b;
+		}
+		var teks = printText4() + ' yang baru';
+		document.getElementById('fungsi4').innerHTML = teks;
+
+		function printText5(angka){
+			return angka * 10;
+		}
+		var teks = printText5(10); 
+		document.getElementById('fungsi4').innerHTML = teks;
+
+		/*-------------------------------------------------------------------------------------------------------
+					SCOPE VARIABLE
+
+		lingkungan hidup di Javascript
+			global var 	-> variabel di luar fungsi;
+			local var  	-> variabel di dalam fungsi;
+
+		untuk yang local var, bisa dijadikan global var, asalkan di dalam fungsi tidak menggunakan 'var'
+		*/
+
+		function global(){
+			local = "ini teks local jadi global";
+		}
+		global();
+		document.getElementById('fungsi4').innerHTML = local;
+
+		/*-------------------------------------------------------------------------------------------------------
+					ARRAY					*/
+		
+
+
+	</script>
+
+ 	<!-- <script src="materi23juli.js"></script> -->
+ </body>
+ </html>
