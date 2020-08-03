@@ -9,7 +9,7 @@ $sheep -> setName("sheep");
 // $sheep -> setCold_blooded('false');
 
 echo "Nama hewan: ".$sheep -> getName()."<br>";
-echo "Jumlah kaki : ".$sheep -> legs()."<br>";
+echo "Jumlah kaki : ".$sheep  -> legs()."<br>";
 echo "Cek hewan berdarah dingin : ".$sheep -> cold_blooded()."<br><br>";
 // echo "Jumlah kaki : ".$sheep -> getLegs()."<br>";
 // echo "Cek hewan berdarah dingin : ".$sheep -> getCold_blooded()."<br><br>";
