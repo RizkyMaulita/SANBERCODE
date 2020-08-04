@@ -1,0 +1,85 @@
+-Laravel adalah framework berbasis PHP untuk pengembangan web. 
+saat ini Laravel adalah framework PHP paling populer khususnya di Indonesia.
+-Laravel menggunakan struktur MVC. sebelum masuk ke Laravel kita coba pahami dulu apa itu struktur MVC.
+-MVC adalah singkatan dari Model View Controller yaitu sebuah pola pada perancangan sebuah software yang berbasis Objek.
+-Tujuan MVC adalah untuk memisahkan antara tampilan, data, dan proses pada sebuah aplikasi website.
+-Pemisahan bagian-bagian tersebut dimaksudkan agar kode lebih terstruktur, rapi, dan paling penting adalah bisa dimengerti dan di-maintain oleh banyak programmer secara bersamaan
+-Laravel adalah sebuah framework yang menggunakan struktur MVC. Di dalam project Laravel terdapat Model untuk olah data, View untuk tampilan, dan Controller untuk mengatur alur request yang masuk.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		MVC (Model - View - Controller)
+
+link : https://www.youtube.com/watch?v=tBKOb8Ib5nI&list=PL8YCzrSDCR7it2LAOXVlG3tqtvqBoCn6I
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+definisi : pola arsitektur pada perancangan perangkat lunak berorientasi objek
+tujuan	 : memisahkan antara tampilan, data, dan proses.
+
+M -> Data
+V -> Tampilan		 M <-> C <-> V
+C -> Proses
+
+Kenapa MVC ? 
+	- organisasi dan struktur kode
+	- pemisahan logic dan tampilan
+	- perawatan kode
+	- implementasi konsep OOP yang sudah dipelajari
+	- digunakan oleh banyak Web Application Framework
+
+Framework MVC
+	Bahasa 		| Framework
+	PHP		| CodeIgniter, Laravel, Yii, dll
+	Java		| Spring MVC, JSF, Struts, dll
+	Python		| Django, CherryPy, dll
+	Ruby		| Ruby on Rails, Sinatra, dll
+	Javascript	| AngularJS, React, Backbone.js, dll
+
+controller default dengan method default
+	- jadi jika misalkan di web buka localhost/phpmvc/home/index
+	- jika ternyata di foldernya ada method index, maka nanti akan masuk ke method index. jika tidak, maka ke default
+	- controller default disini phpmvs
+	- jika misalkan dibuka localhost/phpmvc/kahshAIO -> maka nanti masuk ke method default, tidak error
+	- disini juga bisa ganti parameter di dalam url supaya nanti tampilannya sesuai parameter itu sendiri
+ 
+
+M -> Data 	-> representasi pengetahuan, 
+		-> mengelola data, 
+		-> logika bisnis
+
+V -> Tampilan 	-> perantara antara model dan view,
+		-> menangani pemrosesan pada aplikasi
+		-> menangani aksi dari user
+
+C -> Proses	-> output, apa yang dilihat oleh user
+		-> representasi visual dari model 
+		-> lapisan presentasi
+
+
+Application Flow pada Codeigniter 
+	https://www.codeigniter.com/user_guide/overview/appflow.html
+
+
+________
+index.	| -> Routing -> |Application | <-> Models	
+php_____| <- View   <-  |Controller  |
+
+-----------------------------------------------------------------------------------------------------------------
+		INSTALL LARAVEL
+
+link : https://www.youtube.com/playlist?list=PL8YCzrSDCR7it2LAOXVlG3tqtvqBoCn6I
+------------------------------------------------------------------------------------------------------------------
+1. install xampp
+2. install composer
+	link : https://getcomposer.org/download/
+	- step ikutin aja, ga perlu di centang2. terus itu composernya bakal nyambungan dengan xampp/php/php.exe
+	- di cmd ketik
+		
+3. install laravel
+	link : https://laravel.com/docs/6.x
+	ini pakai laravel versi 6, ada alasan tertentu. udah ikutin aja wkwk
+	
+
+
+
+-Route 
+	itu jalur. 
+	localhost:8000 itu request pertama
