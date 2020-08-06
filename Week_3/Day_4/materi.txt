@@ -1,0 +1,83 @@
+		MATERI MIGRATION LARAVEL
+
+- Laravel Migration yaitu pengatur perubahan-perubahan pada database di project Laravel kita.
+- Kenapa perubahan pada Database perlu diatur ? Kan database tinggal bikin aja secara manual di mysql atau di phpmyadmin ?  
+	- Karena ke depannya project Laravel kita bisa jadi dikerjakan oleh banyak developer. 
+	- Karena development dikerjakan bersama sehingga database untuk masing-masing developer pun harus sama.
+- Database pada tahap development atau pengembangan biasanya menggunakan database di localhost. 
+  sehingga untuk setiap developer memiliki database di localhost nya masing-masing. 
+  Isi atau records dari database masing-masing bisa jadi berbeda, tapi untuk struktur database seperti nama tabel, nama kolom, hubungan antar tabel, foreign key, dan lain-lain harus sama.
+- Oleh karena itu, Laravel menyediakan Migration agar kita dapat mengatur database kita secara rapi bahkan ketika dikerjakan oleh banyak developer secara bersamaan.
+
+link : https://www.youtube.com/playlist?list=PL8YCzrSDCR7hlOzhq1qC7hc8QNBwi_nvV
+
+Database Migration
+	- "Version Control" dari Database
+		seperti halnya Git yang merupakan "Version Control" dari server
+	- Mengatur perubahan-perubahan pada database
+		seperti halnya Git ketika ada perubahan, maka akan tercatat perubahannya dimana
+	- Efektif untuk project yang dikelola oleh banyak orang
+
+list : 
+	1. Membuat Database
+		mysql> CREATE DATABASE mydatabase;
+	2. Membuat Migration
+		$ php artisan make:migration create_users_table
+			//jadi Nama tablenya itu 'users'. dan kalau bisa harus dalam bentuk jamak
+		- File migrations ada di : folder database/migrations/
+		- Function up 
+			- dijalankan ketika migration dilakukan
+			- ini seperti do
+			- contoh
+				public function up(){
+					Schema:: create('items', function(Blueprint $table){
+						$table -> bigIncrements('id');
+						$table -> string('name');
+						$table -> longText('description') -> nullable();
+						$table -> integer ('price') -> nullable();
+						$table -> integer('stock') -> nullable();
+						$table -> timestamps();
+					});
+				}
+		- Function down
+			- dijalankan untuk membalikkan proses migration (reverse/rollback)
+			- ini seperti undo
+			- contoh
+				public function down(){
+					Schema::dropIfExists('items');
+				}
+		
+	3. Menjalankan Migration
+		$ php artisan migrate
+			- memanggil semua file function up
+			- tapi yang dipanggil hanyalah function yang tidak pernah di migrate sebelumnya
+		$ php artisan migrate:status
+			- check file mana saja yang sudah atau belum di migrate
+		$ php artisan migrate:rollback
+			- untuk function down
+		$ php artisan migrate:refresh
+			- dipanggil semua function down dan diulang dari awal
+
+----------------------------------------------------------------------------------
+1. buat database di phpmyadmin. misal dibuat nama databasenya = blog
+2. buka vscode -> check di .env -> di ganti DB_DATABASE = blog
+3. di gitbash stop php artisan serve, dengan cara Ctrl + C, lalu ulang lagi php artisan serve
+------------------------------------------------------------------------------------------
+link : https://www.youtube.com/watch?v=kyshnSn53iE&list=PL8YCzrSDCR7hlOzhq1qC7hc8QNBwi_nvV&index=3
+
+ada ERD, dengan table users , posts, tags
+
+	users	|	posts	|	tags
+id		|id		|id
+nama		|title 		|#
+email 		|body		|
+password	|		|
+ 
+users dengan posts -> one to many (satu user bisa buat banyak post. sehingga nanti ada FK users di post)
+posts dengan tags -> many to many (jadi nanti ada posts_has_tags yang isinya FK dari post dan tags)
+
+step:
+1. $ php artisan make:migration create_posts_table
+2. edit file create_posts_table di folder database @vscode
+3. $ php artisan migrate
+4. lihat di phpmyadmin, semua table migrationsnya sudah masuk

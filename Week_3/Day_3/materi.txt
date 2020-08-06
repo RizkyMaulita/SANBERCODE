@@ -1,0 +1,68 @@
+-Jika website yang kita bangun memiliki halaman yang banyak tentu kita tidak ingin menulis kode HTML halaman per halamannya secara manual.
+-Terlebih lagi suatu website biasanya mempunyai layout tampilan yang selalu sama atau identik antara halaman satu dengan halaman lainnya.  
+Karena demi konsistensi desain dan cenderung rapi dan tidak berantakan
+-Tapi jika kita menulis manual halaman per halamannya maka akan terjadi perulangan atau redundansi. 
+bayangkan sebuah website dengan 100 halaman kita harus menulis semua halaman tersebut dari mulai tag pembuka <html>, bagian <head>, bagian navbar, sidebar, footer dan lain-lain. 
+Padahal bagian-bagian tersebut merupakan bagian yang statis dan tidak banyak berubah dari halaman ke halaman.
+-Laravel memberikan solusi yaitu dengan menggunakan mesin pembuat template (Template Engine) yang bernama "Blade" untuk membuat template utama dan memakainya di banyak halaman lain.
+
+------------------------------------------------------------------------------------------------------------
+		MATERI TEMPLATING BLADE LARAVEL
+
+link : https://www.youtube.com/watch?v=fu9jSJDKHeE&list=PL8YCzrSDCR7jKAGyOzK_ArZl92RyOXQqM
+------------------------------------------------------------------------------------------------------------
+The Solution : Master Template
+ 
+misal di file master.blade.php 
+	-disini ditaruh template
+	-masukkan satu slot  tempat menjadi tempat unique yang nanti isinya dapat diisi dari file lain
+		@yield('content')
+misal ada file lagi namanya index.blade.php , maka nanti isinya
+	@extends('master')		//master karena itu dari file master
+	@section('content')		//content karena itu dari isi parameter di yield @ master.blade.php
+		<table></table>		//ini optional mau isinya apa
+	@endsection
+
+----------------Simplify master with include------------------
+contoh di file master.blade.php
+
+		Before			|		After
+<html>					|<html>
+	<head></head>			|	<head></head>
+	<body>				|	<body>
+		<navbar></navbar>	|		@include('navbar')
+		<sidebar></sidebar>	|		@include('sidebar')
+		@yield('content')	|		@yield('content')
+	</body>				|	</body>
+
+
+------------Add script with stack---------------------------
+master.blade.php		|create.blade.php
+				|
+--				|@extends('master')
+<body>				|
+	@stack('scripts')	|@push('scripts')
+</body>				|	<script>
+---				|		var items = []	
+				|		console.loh(items)
+				|	</script>
+				|@endpush
+
+stack and push biasanya digunakan untuk script dan link
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

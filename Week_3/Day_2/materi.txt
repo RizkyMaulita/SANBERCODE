@@ -71,15 +71,21 @@ link : https://www.youtube.com/playlist?list=PL8YCzrSDCR7it2LAOXVlG3tqtvqBoCn6I
 2. install composer
 	link : https://getcomposer.org/download/
 	- step ikutin aja, ga perlu di centang2. terus itu composernya bakal nyambungan dengan xampp/php/php.exe
-	- di cmd ketik
+	- di cmd ketik 
+		composer
 		
 3. install laravel
-	link : https://laravel.com/docs/6.x
-	ini pakai laravel versi 6, ada alasan tertentu. udah ikutin aja wkwk
-	
+	-link : https://laravel.com/docs/6.x
+	-ini pakai laravel versi 6, ada alasan tertentu. udah ikutin aja wkwk
+	-di cmd ketik
+		composer create-project --prefer-dist laravel/laravel blog "6.*"
+	- kalau create-projectnya gak bisa, ketik ini di cmd
+		composer self-update
+		(lalu ulang lagi create-project)
 
-
-
--Route 
-	itu jalur. 
-	localhost:8000 itu request pertama
+4. lalu lihat gitbash tempat menaruh install laravel, lakuin
+	$ls 
+	$code . 		-> ini nanti langsung ke VSCode
+	$php artisan serve	-> ini nanti isinya url untuk melihat hasil code kita. localhost:8000/
+				-> kalau misalkan gak bisa buka localhostnya, di cmd ketik ini
+					php -S localhost:8000 -t public/
