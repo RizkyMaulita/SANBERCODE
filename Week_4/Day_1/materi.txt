@@ -1,0 +1,76 @@
+		MATERI ELOQUENT ORM 
+	   (OBJECT RELATIONAL MAPPING)
+----------------------------------------------------------------------------------
+- ORM yaitu suatu perangkat untuk memetakan Data/entity di Database sebagai Objek.
+- Dengan ORM, kita dapat menganggap Data di Database sebagai kumpulan Objek-Objek yang dapat kita ambil datanya, kita manipulasi, dan kita simpan kembali ke Database.
+- ORM di Laravel diberi nama "Eloquent" atau nantinya kita sering menyebutnya "Model".
+
+
+link : https://www.youtube.com/playlist?list=PL8YCzrSDCR7jjhro5k1DRhR76piZ6Oan9
+----------------------------------------------------------------------------------------------------------------
+	Model: Eloquent VS Query Builder
+
+- Eloquent
+	Active Recods Pattern
+	setiap satu baris data memiliki function seperti insert, update, delete, dll
+	disini seperti OOP
+
+- Query Builder 
+	dapat melakukan lebih banyak cara untuk queries ke database
+
+----------------------------------------------------------------------------------
+	Membuat Model Eloquent
+
+$ php artisan make:model Item		
+
+- nama modelnya 'item'. 
+- nama tabelnya 'items'.
+- di dalam folder App kurang lebih kek gini	
+	<? php
+	
+	namespace App;
+	use Illuminate\Database\Eloquent\Model;
+	
+	class Item extends Model
+	{
+		protected $table = 'items';
+		protected $fillable = ['name','price','stock','description'];
+		protected $guarded =[];
+		protected $timestamps = true;
+	}
+
+
+https://laravel.com/docs/6.x/eloquent
+
+jika belum ada migrationnya, bisa gunakan ini
+	php artisan make:model Flight --migration
+	php artisan make:model Flight -m
+
+setelah buat model, maka di controllenya dibuat 
+	use App\Post 		-> ini nama modelnya Post
+
+--------------------------------------------------------------------------------
+di dalam web.php
+see line 88 -94, terlihat bahwa untuk menjalankan table post saja routenya sudah sepanjang itu
+hal ini akan merepotkan bila web kita tersambung dengan database yang sangat besar
+jangan sampai kita sebagai web development malah tersesat karena kerjaan kita sendiri
+sehingga route tersebut dapat dibuat lebih simple menggunakan 'resource' seperti berikut ini
+
+Route::resource('posting','PostingController');
+
+di git bash, buat controllernya
+	php artisan make:controller PostingController --resource
+
+nanti akan terbuat controller yang sudah ada template crud nya 
+
+
+
+
+
+
+
+
+
+
+
+

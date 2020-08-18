@@ -1,0 +1,68 @@
+		MATERI AUTHENTICATION 
+
+Authentication yaitu sistem pengamanan di Laravel lewat autentikasi seperti register dan login.
+
+link : https://www.youtube.com/playlist?list=PL8YCzrSDCR7g59FZKT2OKY99HRfHo9NK9
+
+-----------------------------------------------------------------------------------------------------
+link : https://laravel.com/docs/6.x/authentication
+
+link : https://laravel.com/docs/6.x/authentication#introduction-database-considerations
+
+step buat mengaktifkan auth: 
+	1. composer require laravel/ui "^1.0" --dev
+	2. php artisan ui vue --auth
+	3. lalu harus masukkan npm, dengan cara download node js dulu si https://nodejs.org/en/
+	4. ikutin step2nya dan selesaikan installnya
+	5. jika sudah terinstall sampai admin powershell exit, maka check d cmd versi node.jsnya
+		node -v
+		npm -v
+	6. di cmd, masuk ke folder blog. lalu lakukan install ini 
+		npm install && npm run dev
+	7. setelah selesai, lihat lagi di localhost, di register/loginnya sudah terpasang lebih rapi
+
+------------------------------------------------------------------------------------------------------------------
+		MATERI ELOQUENT RELATIONSHIP
+
+cara buat model sekaligus dengan migratenya 
+	php artisan make:model Profile -m
+
+lalu buat di file model User.php
+	public function profile(){
+        	return $this -> hasOne('App\Profile');
+    	}
+
+lalu di SQL, supaya lebih cepat tanpa buat CRUD dulu, langsung isi table profile saja
+	INSERT INTO `profiles` (`id`, `full_name`, `phone`, `photo`, `user_id`, `created_at`, `updated_at`) VALUES (NULL, 'Rizky Maulitha', '08123456789', NULL, '1', NULL, NULL);
+
+lalu di sidebarnya akan diganti menjadi 
+	<a href="#" class="d-block">{{ Auth::user() -> profile -> full_name }}</a>
+
+//karena di table profile ada fk users, maka dibuat fungsi profile di model user 
+	public function profile(){
+        	return $this -> hasOne('App\Profile');
+    	}
+
+tapi bisa saja dibuat reverse, fungsi user di model profile dengan menggunakan 'belongsTo'. dan ini menjadi One to Many
+	public function user(){
+        	return $this -> belongsTo('App\User');
+    	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

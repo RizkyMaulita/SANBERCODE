@@ -1,0 +1,25 @@
+		MATERI CRUD (Create Read Update Delete)
+---------------------------------------------------------------------------------------------
+- CRUD yaitu proses membuat  , menampilkan, mengubah, atau menghapus data ke database.
+- Fitur CRUD ini penting dikuasai sebagai kompetensi minimum seseorang untuk dapat dikatakan menguasai suatu framework. 
+	Dalam hal ini, jika kita menguasai CRUD Laravel maka boleh dibilang kita sudah menguasai Laravel level dasar.
+
+link : https://www.youtube.com/playlist?list=PL8YCzrSDCR7g4IqBTi6zEbJZxyHaYZ9SL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

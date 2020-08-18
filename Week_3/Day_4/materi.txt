@@ -81,3 +81,10 @@ step:
 2. edit file create_posts_table di folder database @vscode
 3. $ php artisan migrate
 4. lihat di phpmyadmin, semua table migrationsnya sudah masuk
+5. di migrate ini, jika kita lupa menambahkan suatu kolom (baik biasa atau fk), maka kita tidak bisa asal mengubah isi file code table yang telah dibuat
+	- karena jika hanya menambahkan kolom di file code tabel itu, maka yang ada tidak akan berubah di databasenya. karena sudah di migrate
+	- yang perlu dilakukan ialah menambahkan table baru yang terhubung dengan tabel yang ingin kita tambah kolomnya (seperti alter table pada sql)
+	- caranya adalah 
+		$php artisan make:migration add_user_id_to_posts
+	kata "user_id" bisa diganti dengan nama kolom yang lain. 
+	kata "posts" itu sesuai dengan nama tablenya
