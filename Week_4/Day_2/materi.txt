@@ -9,7 +9,7 @@ link : https://laravel.com/docs/6.x/authentication
 
 link : https://laravel.com/docs/6.x/authentication#introduction-database-considerations
 
-step buat mengaktifkan auth: 
+Step buat mengaktifkan auth: 
 	1. composer require laravel/ui "^1.0" --dev
 	2. php artisan ui vue --auth
 	3. lalu harus masukkan npm, dengan cara download node js dulu si https://nodejs.org/en/
@@ -21,6 +21,31 @@ step buat mengaktifkan auth:
 		npm install && npm run dev
 	7. setelah selesai, lihat lagi di localhost, di register/loginnya sudah terpasang lebih rapi
 
+
+Middleware 
+	-> untuk mengamankan halaman website yang hanya dapat di akses oleh user yang sudah login 
+	-> ada dua cara : 
+		1. via route web
+			Route :: resource('posts','PostController') -> middleware('auth');
+		2. via controller 
+			public function __construct()
+    			{
+        				$this->middleware('auth');
+    			}
+			
+			jika ada halaman yang bisa diakses tanpa login, maka dapat digunakan ini 
+					$this -> middleware('auth') -> except ('nama route');		
+				contoh: 
+					$this -> middleware('auth') -> except ('index');
+		
+			jika ada halaman tertentu yang hanya bisa diakses dengan login, maka dapat digunakan ini 
+					$this -> middleware('auth') -> only ('nama route');		
+				contoh: 
+					$this -> middleware('auth') -> only ('create','store','edit','update');
+
+
+untuk mengambil nama user yang sedang login bisa gunakan ini
+	{{ Auth:: user() -> name}}
 ------------------------------------------------------------------------------------------------------------------
 		MATERI ELOQUENT RELATIONSHIP
 
