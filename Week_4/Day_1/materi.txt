@@ -60,10 +60,19 @@ Route::resource('posting','PostingController');
 
 di git bash, buat controllernya
 	php artisan make:controller PostingController --resource
+		-> nanti akan terbuat controller yang sudah ada template crud nya 
 
-nanti akan terbuat controller yang sudah ada template crud nya 
-
-
+jika misal sudah buat route resourcenya, nanti setiap route punya nama. maka link bisa diganti dengan nama routenya.
+	- dengan route biasa 
+		<a class="btn btn-primary mb-2" href="/posts/create"> Create New Post</a> -->
+        - dengan nama route 
+		<a class="btn btn-primary mb-2" href="{{ route ('posts.create') }}"> Create New Post</a>
+                
+jika ada id, maka
+	- dengan route biasa 
+                <a href="/posts/{{$post->id}}" class="btn btn-info btn-im"> Show </a>
+	- dengan nama route
+		<a href="{{ route( 'posts.show', ['post' => $post-> id] ) }}" class="btn btn-info btn-im"> Show </a>
 
 
 
